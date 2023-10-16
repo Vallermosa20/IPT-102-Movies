@@ -35,6 +35,13 @@ namespace BSIT3L_Movies.Controllers
             var movie = new Movie() { Name = "Avatar", Rating = "5" };
             return View(movie);
         }
+        public ActionResult GetMovie(int id)
+        {
+            var movie = _movies.Find(movie => movie.Id == id);
+            if (movie == null)
+            return NotFound();
+            return View(movie);
+        }
     }
 }
 
